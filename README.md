@@ -4,14 +4,7 @@ Angle Space Loss Function for Face Recognition.
 
 PyTorch implementation of Additive Angular Margin Loss for Deep Face Recognition.
 [paper](https://arxiv.org/pdf/1801.07698.pdf).
-```
-@article{deng2018arcface,
-title={ArcFace: Additive Angular Margin Loss for Deep Face Recognition},
-author={Deng, Jiankang and Guo, Jia and Niannan, Xue and Zafeiriou, Stefanos},
-journal={arXiv:1801.07698},
-year={2018}
-}
-```
+
 ## Dataset
 
 Function|Dataset|
@@ -44,13 +37,6 @@ Image alignment:
 3. Central face selection.
 4. Resize -> 112x112. 
 
-Original | Aligned & Resized | Original | Aligned & Resized |
-|---|---|---|---|
-|![image](https://github.com/foamliu/InsightFace/raw/master/images/0_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/0_img.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/1_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/1_img.jpg)|
-|![image](https://github.com/foamliu/InsightFace/raw/master/images/2_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/2_img.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/3_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/3_img.jpg)|
-|![image](https://github.com/foamliu/InsightFace/raw/master/images/4_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/4_img.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/5_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/5_img.jpg)|
-|![image](https://github.com/foamliu/InsightFace/raw/master/images/6_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/6_img.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/7_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/7_img.jpg)|
-|![image](https://github.com/foamliu/InsightFace/raw/master/images/8_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/8_img.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/9_raw.jpg)|![image](https://github.com/foamliu/InsightFace/raw/master/images/9_img.jpg)|
 
 ### Train
 ```bash
@@ -86,46 +72,6 @@ $ wget http://vis-www.cs.umass.edu/lfw/people.txt
 $ python lfw_eval.py
 ```
 
-#### Results
-Backbones|LFW(%)|Inference speed(*)| 
-|---|---|---|
-|SE-LResNet101E-IR|99.83%|46.63 ms|
-|SE-LResNet50E-IR|99.75%|27.30 ms|
-|SE-LResNet18E-IR|99.65%|17.53 ms|
-
-Note(*): with 1 Nvidia Tesla P100.
-
-#### theta j Distribution
-
-![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/theta_dist.png)
-
-#### Error analysis
-See also [LFW Face Database Errata](http://vis-www.cs.umass.edu/lfw/index.html#errata)
-
-##### False Positive
-2 false positives:
-
-1|2|1|2|
-|---|---|---|---|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fp_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fp_1.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fp_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fp_1.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fp_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fp_1_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fp_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fp_1_aligned.jpg)|
-
-
-##### False Negative
-8 false negative:
-
-1|2|1|2|
-|---|---|---|---|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fn_1.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fn_1.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/0_fn_1_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/1_fn_1_aligned.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/2_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/2_fn_1.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/3_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/3_fn_1.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/2_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/2_fn_1_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/3_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/3_fn_1_aligned.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/4_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/4_fn_1.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/5_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/5_fn_1.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/4_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/4_fn_1_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/5_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/5_fn_1_aligned.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/6_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/6_fn_1.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/7_fn_0.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/7_fn_1.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/6_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/6_fn_1_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/7_fn_0_aligned.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/7_fn_1_aligned.jpg)|
-
-
 ### MegaFace
  
 #### Introduction
@@ -134,7 +80,7 @@ MegaFace dataset includes 1,027,060 faces, 690,572 identities. [Link](http://meg
  
 Challenge 1 is taken to test our model with 1 million distractors. 
 
-![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/megaface_stats.png)
+
  
 #### Download
 
@@ -176,26 +122,3 @@ $ python run_experiment.py -p /dev/code/mnt/InsightFace-v2/megaface/devkit/templ
 
 Draw curves with matlab script @ megaface/draw_curve.m. 
 
-CMC|ROC|
-|---|---|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/megaface_cmc.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/megaface_roc.jpg)|
-|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/megaface_cmc_2.jpg)|![image](https://github.com/foamliu/InsightFace-v2/raw/master/images/megaface_roc_2.jpg)|
-
-##### Textual results
-<pre>
-Done matching! Score matrix size: 3379 972313
-Saving to results/otherFiles/facescrub_megaface_0_1000000_1.bin
-Computing test results with 1000000 images for set 1
-Loaded 3379 probes spanning 80 classes
-Loading from results/otherFiles/facescrub_facescrub_0.bin
-Probe score matrix size: 3379 3379
-distractor score matrix size: 3379 972313
-Done loading. Time to compute some stats!
-Finding top distractors!
-Done sorting distractor scores
-Making gallery!
-Done Making Gallery!
-Allocating ranks (972393)
-
-Rank 1: 0.964733
-</pre>
