@@ -115,10 +115,3 @@ Start MegaFace evaluation through devkit:
 $ cd megaface/devkit/experiments
 $ python run_experiment.py -p /dev/code/mnt/InsightFace-v2/megaface/devkit/templatelists/facescrub_uncropped_features_list.json /dev/code/mnt/InsightFace-v2/megaface/MegaFace_aligned/FlickrFinal2 /dev/code/mnt/InsightFace-v2/megaface/facescrub_images _0.bin results -s 1000000
 ```
-
-#### Results
-
-##### Curves
-
-Draw curves with matlab script @ megaface/draw_curve.m. 
-
